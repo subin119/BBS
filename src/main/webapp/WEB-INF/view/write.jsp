@@ -16,7 +16,7 @@
 	<input type="submit" value="글 등록">
 	</form>
 	
-	<form method="post" action="/BbsMVC/bbsList">
+	<form method="post" action="/BBS/bbsList">
 	<input type="submit" value="HOME">
 	</form>
 	
