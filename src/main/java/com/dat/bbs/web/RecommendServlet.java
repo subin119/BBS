@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dat.bbs.biz.BbsBiz;
 import com.dat.bbs.biz.BbsBizImpl;
-import com.dat.bbs.vo.BbsVO;
 
-public class AddBbsServlet extends HttpServlet {
+public class RecommendServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	
 	private BbsBiz biz;
 	
-    public AddBbsServlet() {
+    public RecommendServlet() {
         super();
         biz = new BbsBizImpl();
     }
@@ -25,22 +24,13 @@ public class AddBbsServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String bbsIdParam = request.getParameter("bbsId");
+		if(bbsIdParam == null) {
+			bbsIdParam = "0";
+		}
+		int bbsId = Integer.parseInt(bbsIdParam);
 		
-		request.setCharacterEncoding("UTF-8");
-		
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		String createrName = request.getParameter("createrName");
-		
-		content = content.replaceAll("\n", "<br/>")
-				         .replaceAll("\r", "");
-		
-		BbsVO bbsVO = new BbsVO();
-		bbsVO.setTitle(title);
-		bbsVO.setContent(content);
-		bbsVO.setCreaterName(createrName);
-		
-		biz.addWriting(bbsVO);
+		biz.updateRecommendCount(bbsId);
 		
 		response.sendRedirect("/BBS/bbsList");
 	}

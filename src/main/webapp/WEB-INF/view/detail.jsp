@@ -7,16 +7,27 @@
 <title>글 상세보기</title>
 </head>
 <body>
-	<h1>${bbs.getTitle()}</h1>
+	<h1>${bbsVO.getTitle()}</h1>
 	<hr/>
-	<h3>작성자 : ${bbs.getCreaterName()}</h3>
-	<h3>입력 시간 : ${bbs.getCreatedDate()}</h3>
-	<h3>조회수 : ${bbs.getHitCount()}</h3>
+	<h4 style="color: #8B6E0E">작성자 : ${bbsVO.getCreaterName()}</h4>
+	<h4 style="color: #8B6E0E">입력 시간 : ${bbsVO.getCreatedDate()}</h4>
+	<h4 style="color: #8B6E0E">조회수 : ${bbsVO.getHitCount()}</h4>
 	<hr/>
 	<p>
-		내용 : ${bbs.getContet()}
-	</p>
-	<a href="/BbsMVC/delete?bbsId=${bbs.getBbsId()}">글 삭제</a>
-	<a href="/BbsMVC/bbsList">처음으로</a>
+		내용 : ${bbsVO.getContent()}
+	</p><hr/>
+	옵션<br/><br/>
+	<form method="post" action="/BBS/delete?bbsId=${bbsVO.getBbsId()}" >
+	<input type="submit" value="글삭제">
+	</form>
+
+	<form method="post" action="/BBS/recommend?bbsId=${bbsVO.getBbsId()}">
+	<input type="submit" value="추천">
+	</form>
+
+	<form method="post" action="/BBS/bbsList">
+	<input type="submit" value="HOME">
+	</form>
+
 	</body>
 </html>

@@ -38,7 +38,7 @@ public class BbsBizImpl implements BbsBiz{
 
 	@Override
 	public boolean updateRecommendCount(int bbsId) {
-		bbsDao.updateHitCount(bbsId);
+		bbsDao.updateRecommendCount(bbsId);
 		return true;
 	}
 

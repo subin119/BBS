@@ -34,12 +34,12 @@ public class DetailServlet extends HttpServlet {
 		}
 		int bbsId = Integer.parseInt(bbsIdParam);
 		
-		BbsVO bbs = biz.getWritingAt(bbsId);
+		BbsVO bbsVO = biz.getWritingAt(bbsId);
 		
 		String viewPath = "WEB-INF/view/detail.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(viewPath);
 		
-		request.setAttribute("BbsVO", bbs);
+		request.setAttribute("bbsVO", bbsVO);
 		rd.forward(request, response);
 	}
 
