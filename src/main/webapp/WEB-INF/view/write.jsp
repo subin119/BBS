@@ -9,7 +9,7 @@
 <body>
 	<h3>글을 작성하세요!</h3>
 	<hr>
-	<form name="textForm" method="post" action="/BbsMVC/add">
+	<form name="textForm" method="post" action="/BBS/add">
 	작성자 : <input type="text" name="createrName" style="width:300px" placeholder="작성자 이름을 입력해주세요"><br/>
 	글 제목 : <input type="text" name="title" style="width:500px" placeholder="게시글 제목을 입력해주세요"><br/>
 	쓰기 : <textarea name="content" style="width:500px; height:300px"></textarea><br/>
